@@ -4,7 +4,7 @@
 #include "abstract_list.hpp"
 
 template<typename T>
-class ArrayList: public AbstractList<T>
+class ArrayList: public AbstractList<T> // comment
 {
 public:
 
