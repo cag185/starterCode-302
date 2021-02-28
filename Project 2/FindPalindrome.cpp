@@ -77,6 +77,7 @@ bool FindPalindrome::isPalindrome(string currentString) const
 			return false;
 		}
 	}
+	//AT SOME POINT WE NEED TO ADD THE FOUND PALINDROME TO A VECTOR OF VECTORS THATY HOLDS ORDERED PALINDROMES
 	return true;
 }
 
@@ -154,16 +155,11 @@ bool FindPalindrome::add(const string & value)
 			return false; //cannot add a value that already exists to the palindrome
 		}
 	}
-
-
-	//at this point, word should be okay to test for palindrome
+	//now want to add the value to the vector of words to find palindromes
+	sentenceVec.push_back(value); //stores teh value at the end of the vector
+	//at this point, sentence should be okay to test for palindrome
 	//check for palindrome
-	if(isPalindrome(tempStr) == true)
-	{
-		//is a palindrone, add to vector
-
-	}
-
+	recursiveFindPalindromes(sentenceVec, sentenceVec);  // should loop through all cominations of sentenceVec and determine how many palindromes we can make
 	return true;
 }
 

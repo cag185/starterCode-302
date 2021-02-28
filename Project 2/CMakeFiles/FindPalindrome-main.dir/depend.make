@@ -4,7 +4,6 @@
 CMakeFiles/FindPalindrome-main.dir/FindPalindrome.cpp.o: FindPalindrome.cpp
 CMakeFiles/FindPalindrome-main.dir/FindPalindrome.cpp.o: FindPalindrome.hpp
 
-CMakeFiles/FindPalindrome-main.dir/FindPalindrome_main.cpp.o: FindPalindrome.cpp
 CMakeFiles/FindPalindrome-main.dir/FindPalindrome_main.cpp.o: FindPalindrome.hpp
 CMakeFiles/FindPalindrome-main.dir/FindPalindrome_main.cpp.o: FindPalindrome_main.cpp
 
