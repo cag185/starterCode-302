@@ -138,11 +138,24 @@ bool FindPalindrome::add(const string & value)
 			return false; //not within ascii range
 		}
 	}
+	//create a vector to hold repeats
+	std::vector <std::string> copyVec;
+	int copies = 0;
 	//also check if word is a repeat, which is not allowed
+	//copy vector
 	for(int i = 0; i < sentenceVec.size(); i ++)
 	{
-		
+		copyVec.at(i) = sentenceVec.at(1); //copy value
+		convertToLowerCase(copyVec.at(i)); //convert to lowercase
+		if(tempStr == copyVec.at(i))
+		{
+			//increase copies value
+			copies++;
+			return false; //cannot add a value that already exists to the palindrome
+		}
 	}
+
+
 	//at this point, word should be okay to test for palindrome
 	//check for palindrome
 	if(isPalindrome(tempStr) == true)
