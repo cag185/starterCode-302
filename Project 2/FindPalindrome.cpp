@@ -84,7 +84,9 @@ bool FindPalindrome::isPalindrome(string currentString) const
 
 FindPalindrome::FindPalindrome()
 {
-	// TODO need to implement this...
+	//initialize stuff to 0
+	sizeVec = 0;
+	numPal = 0;
 }
 
 FindPalindrome::~FindPalindrome()
@@ -126,12 +128,12 @@ bool FindPalindrome::add(const string & value)
 {
 	// need to check if the word added is acceptable
 	std::string tempStr;
-	tempStr = convertToLowerCase(value); // make the string lowercase
+	tempStr = value; convertToLowerCase(tempStr); // make the string lowercase
 	//check if each letter is an ascii alphabetical
 	for(int i = 0; i < value.size(); i++)
 	{
 		//check each letter
-		if((int)value(i) < 65 || 90 < (int)value(i) < 97 || 122 < (int)value(i))
+		if((int)value[i] < 65 || 90 < (int)value[i] < 97 || 122 < (int)value[i])
 		{
 			return false; //not within ascii range
 		}
