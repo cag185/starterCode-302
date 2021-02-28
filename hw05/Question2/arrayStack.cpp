@@ -12,6 +12,8 @@ arrayStack<T>::arrayStack()
     arrPoint = new T [stackLength]; //create a dynamically allocated array of inital size
     //set flags
     h = 0;
+    //initialize k to -1
+    k = -1;
 }
 
 //destructor
@@ -102,16 +104,55 @@ void arrayStack<T>::setH(bool &choice)
     return false;
 }
 
+//set K
+template <typename T>
+void setK(int &set)
+{
+    k = set;
+}
+
 //resize function
 template <typename T>
 void arrayStack <T>:: resize()
 {
+    //check to see if k is positive and H is not asserted
+    //incrementing value
+    int kAdd = 3;
+    if(k > 0 && h == 0)
+    {
+        if(stackLength == usedSpace) //stack is full
+        //resize array based on 3k..5k..7k  
+        //create tempPointer
+        
+        T * tempPoint = new T [size() + (kAdd * k)];
+        //copy all values
+        for(std::size_t i = 0; i <(size()); i++)
+        {
+            tempPoint[i] = arrPoint[i]; //loop through all values of arrPoint
+        }
+        //update stackLength
+        stackLength = size() + (kAdd * k);
+        //free arrPoint
+        delete [] arrPoint;
+        //remake
+        arrPoint = new T [size()];
+        //reassign new sized array
+        for(std::size_t a = 0; a < size(); a++)
+        {
+            arrPoint[a] = tempPoint[a];
+        }
+        //increase kAdd by two
+        kAdd += 2;
+        //delete tempPoint
+        delete [] tempPoint;
+    }
+    
     //check to see of the array needs to be resized
     if(stackLength == usedSpace || (h == 1 & usedSpace > stackLength/2))
     {
         //array needs to double
         //create a temp pointer
-        T *tempPointer = new [size() * 2]; //creates a temp
+        T *tempPointer = new T [size() * 2]; //creates a temp
         //pointer to an array twice the size of the original
         for(std::size_t i = 0; i<=size(); i++)
         {
@@ -133,7 +174,7 @@ void arrayStack <T>:: resize()
         if(usedSpace <stackLength/2 && stackLength > 1)
         {
             //do the same thing but now halve the array
-            T *tempPoint = new [size() / 2];
+            T *tempPoint = new T [size() / 2];
             for(std::size_t x = 0; x <= size()/2; x++)
             {
                 tempPoint[x] = arrPoint[x];
