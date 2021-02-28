@@ -10,6 +10,8 @@ arrayStack<T>::arrayStack()
     //set size = 1
     stackLength = 1;
     arrPoint = new T [stackLength]; //create a dynamically allocated array of inital size
+    //set flags
+    h = 0;
 }
 
 //destructor
@@ -50,7 +52,7 @@ T arrayStack<T>::pop()
     }
     //free temp
     delete [] tempPoint;
-    
+
     //decrease size
     usedSpace--;
     return tempPlaceholder;
@@ -60,14 +62,15 @@ T arrayStack<T>::pop()
 template <typename T>
 T arrayStack<T>::peek()
 {
-
+    //return the value of the array at the last index
+    return arrPoint[usedSpace()];
 }
 
 //is empty
 template <typename T>
 bool arrayStack<T>::isEmpty()
 {
-    if(usedSpace == 0)
+    if(usedSpace() == 0)
     {
         return true;
     }
@@ -88,12 +91,23 @@ std::size_t arrayStack<T>::usedSpace()
     return usedSpace;
 }
 
+//set the flag H
+template <typename T>
+void arrayStack<T>::setH(bool &choice)
+{
+    if(choice == 1)
+    {
+        return true;
+    }
+    return false;
+}
+
 //resize function
 template <typename T>
 void arrayStack <T>:: resize()
 {
     //check to see of the array needs to be resized
-    if(stackLength == usedSpace)
+    if(stackLength == usedSpace || (h == 1 & usedSpace > stackLength/2))
     {
         //array needs to double
         //create a temp pointer

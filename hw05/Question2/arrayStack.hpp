@@ -11,6 +11,8 @@ class arrayStack{
         //size variable
         std::size_t stackLength;
         std::size_t usedSpace;
+        //flag h -- if set, double array when more than half of array is used
+        bool h;
     public:
         //anytime stack becomes full, double the array
         //stacks bottom entry is the beggining of array
@@ -41,4 +43,7 @@ class arrayStack{
 
         //resize function
         void resize();
+
+        //set flagH
+        void setH(bool &choice);
 };
