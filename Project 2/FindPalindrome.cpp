@@ -26,7 +26,7 @@ static void convertToLowerCase(string & value)
 void FindPalindrome::recursiveFindPalindromes(vector<string>
         candidateStringVector, vector<string> currentStringVector)
 {
-	/*//make a loop that is run as many times as candidateStringVector is long
+	//make a loop that is run as many times as candidateStringVector is long
 	for(int  i = 0; i < candidateStringVector.size(); i++)
 	{
 		//create new temporary vectors to hold candidate and current vectors 
@@ -58,9 +58,9 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 		}
 
 		//call the function recursively
-		recursiveFindPalindromes(newCandidate, newCurrent); */
-	//}
-	//return;
+		recursiveFindPalindromes(newCandidate, newCurrent); 
+	}
+	return;
 }
 
 // private function to determine if a string is a palindrome (given, you
@@ -100,17 +100,17 @@ FindPalindrome::~FindPalindrome()
 int FindPalindrome::number() const
 {
 	// return the number of palindrones
-	//return numPal;
+	return numPal;
 }
 
 void FindPalindrome::clear()
 {
 	// set the number of sentence palindromes to 0
-	//numPal = 0;
+	numPal = 0;
 	//clear the vector of words
-	//sentenceVec.clear(); // clear is the built in vector method
+	sentenceVec.clear(); // clear is the built in vector method
 	//clear the vector of palindrones
-	//PalindroneVec.clear(); // clear is the built in vector method
+	PalindroneVec.clear(); // clear is the built in vector method
 
 }
 
@@ -129,8 +129,32 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 
 bool FindPalindrome::add(const string & value) // implement recursive function to work
 {
-	// TODO need to implement this...
-	return false;
+	// need to check if the word added is acceptable
+	std::string tempStr;
+	tempStr = convertToLowerCase(value); // make the string lowercase
+	//check if each letter is an ascii alphabetical
+	for(int i = 0; i < value.size(); i++)
+	{
+		//check each letter
+		if((int)value(i) < 65 || 90 < (int)value(i) < 97 || 122 < (int)value(i))
+		{
+			return false; //not within ascii range
+		}
+	}
+	//also check if word is a repeat, which is not allowed
+	for(int i = 0; i < sentenceVec.size(); i ++)
+	{
+		
+	}
+	//at this point, word should be okay to test for palindrome
+	//check for palindrome
+	if(isPalindrome(tempStr) == true)
+	{
+		//is a palindrone, add to vector
+
+	}
+
+	return true;
 }
 
 bool FindPalindrome::add(const vector<string> & stringVector) // implement recursive function to work
@@ -144,6 +168,6 @@ vector< vector<string> > FindPalindrome::toVector() const
 {
 	// TODO need to implement this...
 	//vector<vector<string>> returnThingie;
-	//return PalindroneVec;
+	return PalindroneVec;
 }
 

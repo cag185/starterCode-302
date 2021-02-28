@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	FindPalindrome f;
+	/*FindPalindrome f;
 	string newString("a");
 	cout << "\n******* Project 1 Main *********\n\n";
 	for (int i=0; i<3; i++) {
@@ -26,7 +26,7 @@ int main()
 		cout << endl;
 	}
 	cout << endl;
-	cout << "\n******* Project 1 Main *********\n\n";
-	return 0;
+	cout << "\n******* Project 1 Main *********\n\n"; */
+	return 0; 
 }
 

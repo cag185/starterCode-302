@@ -47,6 +47,8 @@ public:
 	   @return The integer number of palindromes in the instance. */
 	int number() const;
 
+	//function to convert the vector of words into a single string
+
 	/** Removes all words from this instance. The internal list
 	   of sentence palindromes is cleared and any internal data
 	   structures are reset.
