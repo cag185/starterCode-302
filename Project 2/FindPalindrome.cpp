@@ -26,6 +26,29 @@ static void convertToLowerCase(string & value)
 void FindPalindrome::recursiveFindPalindromes(vector<string>
         candidateStringVector, vector<string> currentStringVector)
 {
+	//need to check if the candidateStringVec is empty
+	if(candidateStringVector.empty() == true)
+	{
+		//create a long AF string and see if it is a palindrome, add to vec if so
+		std::string longAFstring;
+		std::string tempString;
+		for(int a = 0; a <currentStringVector.size(); a++)
+		{
+			tempString =  currentStringVector.at(a);
+			//make it lowercase
+			convertToLowerCase(tempString);
+			//add it to the long string
+			longAFstring += tempString;
+		}
+		//now test the long string to see if its a palindrome
+		if(isPalindrome(longAFstring)==true)
+		{
+			//add the palindrome to the vector
+			//increase size
+			PalindroneVec.push_back(currentStringVector); 
+			numPal++;
+		}
+	}
 	//make a loop that is run as many times as candidateStringVector is long
 	for(int  i = 0; i < candidateStringVector.size(); i++)
 	{
@@ -38,24 +61,6 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 		newCandidate.erase(newCandidate.begin() + i-1);
 		//add the word to the current vector at the end
 		newCurrent.push_back(candidateStringVector.at(i));
-
-		//run the isPalindrome tests
-		//need to make all entries in vector into one string
-		std::string longAFString;
-		for( int j = 0; j < currentStringVector.size(); j++)
-		{
-			//loop through vector and make one long string from all values in vector
-			//convert each element into lowecase and append the long string
-			std::string TempStr = currentStringVector.at(j);
-			convertToLowerCase(TempStr); // make lower case
-			longAFString = longAFString + TempStr;
-		}
-		//giant string should be concattonated now and ready to pass to isPalidrome function
-		if(isPalindrome(longAFString) == true)
-		{
-			//increase the numPalandrones
-			numPal++;
-		}
 
 		//call the function recursively
 		recursiveFindPalindromes(newCandidate, newCurrent); 
