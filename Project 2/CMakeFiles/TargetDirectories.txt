@@ -1,0 +1,6 @@
+/home/cag185/Desktop/C++/starterCode-302/Project 2/CMakeFiles/rebuild_cache.dir
+/home/cag185/Desktop/C++/starterCode-302/Project 2/CMakeFiles/submission.dir
+/home/cag185/Desktop/C++/starterCode-302/Project 2/CMakeFiles/edit_cache.dir
+/home/cag185/Desktop/C++/starterCode-302/Project 2/CMakeFiles/test.dir
+/home/cag185/Desktop/C++/starterCode-302/Project 2/CMakeFiles/FindPalindrome-main.dir
+/home/cag185/Desktop/C++/starterCode-302/Project 2/CMakeFiles/FindPalindrome-tests.dir
