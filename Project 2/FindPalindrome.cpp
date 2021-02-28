@@ -114,8 +114,46 @@ void FindPalindrome::clear()
 
 bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 {
-	// TODO need to implement this...
-	return false;
+	//Need to look at each character in the sentence palindrome and see if more than one character shows up an odd amount of times
+	int oddCheck = 0; //this value cannot be greater than 1 and still pass
+	int letterCount = 0;
+
+	//need to add all values of sentence vec into a single long af string
+	std::string longAFString;
+	std::string tempString;
+	for(int i = 0; i <sentenceVec.size(); i++)
+	{
+		tempString =  stringVector.at(i);
+		//make it lowercase
+		convertToLowerCase(tempString);
+		//add it to the long string
+		longAFString += tempString;
+	}
+	//now string should be one long string 
+	int sizeLongString = longAFString.length();
+	//loop to check through the string
+	for(int i = 0; i < sizeLongString; i++) // gets the character we want to compare
+	{
+		for(int j = 0; j <= sizeLongString; j++) // compares to all other values
+		{
+			//check string at i and compare with j
+			if(longAFString[i] == longAFString[j])
+				{
+					letterCount++;
+				}
+			//now check if letterCount is evenly divisible by 2
+			if(letterCount % 2 != 0) //we have an odd amount of same letters
+			{
+				oddCheck++;
+			}
+		}
+	}
+	//after we finish looping, check if oddCheck > 1
+	if(oddCheck > 1)
+	{
+		return false;
+	}
+	return true;
 }
 
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
