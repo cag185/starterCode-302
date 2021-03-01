@@ -63,6 +63,8 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 		newCurrent.push_back(candidateStringVector.at(i));
 
 		//call the function recursively
+		if(cutTest2(newCandidate, newCurrent)== false)
+			return;
 		recursiveFindPalindromes(newCandidate, newCurrent); 
 	}
 	return;
