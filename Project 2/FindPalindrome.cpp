@@ -226,7 +226,7 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 		if(temp1[i] > temp2[i])
 			return false; // the num in array1 is larger than num in array2 -- we DONT want this 
 	}
-	return true; //otherwise we gucci
+	return true; //otherwise we gucci // double check // add this comment to make sure that github is workin
 }
 
 bool FindPalindrome::add(const string & value)
