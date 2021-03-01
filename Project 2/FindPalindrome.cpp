@@ -180,10 +180,53 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 	{
 		s2+=stringVector2[i];
 	}
-	
-	
 
-	return false;
+	//need to convert both strings to lowercase
+	convertToLowerCase(s1);
+	convertToLowerCase(s2);
+
+	//find the bigger string and store it in largeString
+	if(s1.length() > s2.length())
+	{
+		largeString = s1;
+		smallString = s2;
+	}
+	else
+	{
+		largeString = s2;
+		smallString = s1;
+	}
+
+	//create temp arrays that hold the number of how many times each elements occur
+	int temp1[26]; //smaller string
+	int temp2[26]; //larger string
+
+	//make sure the numbers in array are 0
+	for(int i = 0; i <26; i++)
+	{
+		//make each index 0
+		temp1[i] =0;
+		temp2[i] =0;
+	}
+
+	//loop through and convert evey value in the array to its numerical representation and increase the number in that position of the alphabet array
+	for(int i = 0; i < smallString.length(); i++)
+	{
+		temp1[smallString[i]-97]++; // increases everytime the letter at its alphabetical component is found
+	}
+	//repeat for other array
+	for(int i = 0; i <largeString.length(); i++)
+	{
+		temp2[largeString[i]-97]++; // increases everytime the letter at its alphabetical component is found
+	}
+	
+	//test to make sure that the smaller string has less of the same characters than larger string
+	for(int i  = 0; i < 26; i++)
+	{
+		if(temp1[i] > temp2[i])
+			return false; // the num in array1 is larger than num in array2 -- we DONT want this 
+	}
+	return true; //otherwise we gucci
 }
 
 bool FindPalindrome::add(const string & value)
