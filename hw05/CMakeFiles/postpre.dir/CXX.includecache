@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cag185/Desktop/C++/starterCode-302/hw05/algebraic_expressions.cpp
+string
+-
+iostream
+-
+cctype
+-
+vector
+-
+algebraic_expressions.hpp
+/home/cag185/Desktop/C++/starterCode-302/hw05/algebraic_expressions.hpp
+
+/home/cag185/Desktop/C++/starterCode-302/hw05/algebraic_expressions.hpp
+string
+-
+

@@ -1,0 +1,4 @@
+/home/cag185/Desktop/C++/starterCode-302/hw05/CMakeFiles/rebuild_cache.dir
+/home/cag185/Desktop/C++/starterCode-302/hw05/CMakeFiles/edit_cache.dir
+/home/cag185/Desktop/C++/starterCode-302/hw05/CMakeFiles/test.dir
+/home/cag185/Desktop/C++/starterCode-302/hw05/CMakeFiles/postpre.dir
