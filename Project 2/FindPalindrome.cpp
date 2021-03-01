@@ -202,7 +202,8 @@ bool FindPalindrome::add(const string & value)
 	sentenceVec.push_back(value); //stores teh value at the end of the vector
 	//at this point, sentence should be okay to test for palindrome
 	//check for palindrome
-	recursiveFindPalindromes(sentenceVec, sentenceVec);  // should loop through all cominations of sentenceVec and determine how many palindromes we can make
+	std::vector <std::string> emptyVec;
+	recursiveFindPalindromes(sentenceVec, emptyVec);  // should loop through all cominations of sentenceVec and determine how many palindromes we can make
 	return true;
 }
 
