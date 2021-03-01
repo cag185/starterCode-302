@@ -98,6 +98,8 @@ FindPalindrome::FindPalindrome()
 FindPalindrome::~FindPalindrome()
 {
 	// TODO need to implement this...
+	//run clear
+	clear();
 }
 
 int FindPalindrome::number() const
@@ -164,7 +166,23 @@ bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
                               const vector<string> & stringVector2)
 {
-	// TODO need to implement this...
+	//need to create two small strings and two large strings
+	std::string s1, s2, largeString, smallString;
+
+	//make strings from vectors
+	//s1 -- firstVec
+	for(int i = 0; i <stringVector1.size(); i++)
+	{
+		s1 += stringVector1[i];
+	}
+	//s2 -- secondVec
+	for(int i = 0; i < stringVector2.size(); i++)
+	{
+		s2+=stringVector2[i];
+	}
+	
+	
+
 	return false;
 }
 
@@ -215,7 +233,7 @@ bool FindPalindrome::add(const vector<string> & stringVector)
 
 vector< vector<string> > FindPalindrome::toVector() const
 {
-	// TODO need to implement this...
+	// Vector of vectors -- one vector is a Palindrome which is a vector of strings
 	//vector<vector<string>> returnThingie;
 	return PalindroneVec;
 }
