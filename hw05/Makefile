@@ -122,6 +122,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named submission
+
+# Build rule for target.
+submission: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 submission
+.PHONY : submission
+
+# fast build rule for target.
+submission/fast:
+	$(MAKE) -f CMakeFiles/submission.dir/build.make CMakeFiles/submission.dir/build
+.PHONY : submission/fast
+
+#=============================================================================
 # Target rules for targets named postpre
 
 # Build rule for target.
@@ -197,6 +210,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... submission"
 	@echo "... postpre"
 	@echo "... algebraic_expressions.o"
 	@echo "... algebraic_expressions.i"
