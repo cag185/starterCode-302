@@ -240,7 +240,7 @@ bool FindPalindrome::add(const string & value)
 	for(int i = 0; i < value.size(); i++)
 	{
 		//check each letter
-		if((int)value[i] < 65 || 90 < (int)value[i] < 97 || 122 < (int)value[i])
+		if((value[i]-97) < 65 || 90 < (value[i]-97) < 97 || 122 < (value[i]-97)) // use -97 to shift from char to ascii decimal
 		{
 			return false; //not within ascii range
 		}
@@ -252,7 +252,7 @@ bool FindPalindrome::add(const string & value)
 	//copy vector
 	for(int i = 0; i < sentenceVec.size(); i ++)
 	{
-		copyVec.at(i) = sentenceVec.at(1); //copy value
+		copyVec.at(i) = sentenceVec.at(i); //copy value
 		convertToLowerCase(copyVec.at(i)); //convert to lowercase
 		if(tempStr == copyVec.at(i))
 		{
@@ -261,23 +261,88 @@ bool FindPalindrome::add(const string & value)
 			return false; //cannot add a value that already exists to the palindrome
 		}
 	}
+	//check with cutTest1 before sending to recursive test
+	if(cutTest1(sentenceVec) == false)
+	{
+		return false;
+	}
 	//now want to add the value to the vector of words to find palindromes
 	sentenceVec.push_back(value); //stores the value at the end of the vector
 	//at this point, sentence should be okay to test for palindrome
 	//check for palindrome
 	std::vector <std::string> emptyVec;
-	//check with cutTest1 before sendfing to recursive test
-	if(cutTest1(sentenceVec) == false)
-	{
-		return false;
-	}
 	recursiveFindPalindromes(sentenceVec, emptyVec);  // should loop through all cominations of sentenceVec and determine how many palindromes we can make
 	return true;
 }
 
+//This does the same thing as the first add test, but by entering a whole vector of words
 bool FindPalindrome::add(const vector<string> & stringVector)
 {
 	// We have a vector full of strings, we need to test each string -- CANNOT RECURSIVELY USE THE STRING ADD FUNCTION
+	//Test for allowable words
+	//4 criteria
+	std::string tempString;
+	std::string caseSenString; //case sensitive string at each index of array
+
+	//create a vector to hold repeats
+	std::vector <std::string> copyVec;
+	int copies = 0;
+
+	//loop through each word in vector
+	for(int i = 0; i <stringVector.size(); i++)
+	{
+		//test each word
+		// need to check if the word in vector is acceptable
+		caseSenString = stringVector.at(i); // gets the case sensitive version of the word
+		tempString = stringVector.at(i); convertToLowerCase(tempString); // make the string lowercase
+
+		//check if each letter in word is an ascii alphabetical
+		for(int i = 0; i < caseSenString.size(); i++)
+		{
+			//check each letter
+			if((caseSenString[i]-97) < 65 || 90 < (caseSenString[i]-97) < 97 || 122 < (caseSenString[i]-97)) // -97 to convert from char to ascii decimal
+			{
+				return false; //not within ascii range
+			}
+		}
+		
+		//also check if word is a repeat, which is not allowed
+		//copy vector
+		//copies string in vector at each index
+		copyVec.at(i) = stringVector.at(i); //copy value
+		convertToLowerCase(copyVec.at(i)); //convert to lowercase
+		//need to compare each string in the vector with itself and every other string in vector
+		//if the copy count is > 1 we have a repeat which is not permitted
+		for(int i = 0; i < stringVector.size(); i++) // controlling which word we are on
+		{
+			for(int j = 0; j <stringVector.size(); j++) //cycling through everyword one time per word
+			{
+				if(stringVector.at(i) == stringVector.at(j))
+				{
+					//increment copies count
+					copies++; //expecting one copy, because we compare the item against the whole vector INCLUDING the index where itself is contained
+				}
+			}
+			//check to see if there is an unallowable ( >1) number of copies
+			if(copies >1)
+			{
+				return false; //cant have too many copies!
+			}
+		}
+
+		//by this point, the words should all be allowable, and we need to send the vector to the reccursive test
+		//create an empty vector
+		std::vector <std::string> emptyVec;
+		//pass the vectors to the recursive test if it passes the cutTest1
+		if(cutTest1(stringVector) == false)
+		{
+			return false; // doesn't go to recursion
+		}
+		//passes then pass to recursive
+		recursiveFindPalindromes(stringVector, emptyVec);
+	}
+
+	//add the stringVector (sentenceVec) to the palindrome vec 
 
 	return false;
 }
