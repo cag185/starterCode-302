@@ -17,6 +17,8 @@ locale
 -
 FindPalindrome.hpp
 /home/cag185/Desktop/C++/starterCode-302/Project 2/FindPalindrome.hpp
+iostream
+-
 
 /home/cag185/Desktop/C++/starterCode-302/Project 2/FindPalindrome.hpp
 string
