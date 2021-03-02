@@ -4,6 +4,7 @@
 #include <locale> 
 #include "FindPalindrome.hpp"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -48,7 +49,9 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 			//increase size
 			PalindroneVec.push_back(currentStringVector); 
 			numPal++;
+			return;
 		}
+		return;
 	}
 	//make a loop that is run as many times as candidateStringVector is long
 	for(int  i = 0; i < candidateStringVector.size(); i++)
@@ -59,13 +62,14 @@ void FindPalindrome::recursiveFindPalindromes(vector<string>
 		std::vector<std::string> newCurrent(currentStringVector);
 
 		//remove a word from the candidate vector
-		newCandidate.erase(newCandidate.begin() + i-1);
+		//newCandidate.erase(newCandidate.begin() + i-1);
+		newCandidate.erase(find(newCandidate.begin(), newCandidate.end(),  newCandidate.at(i)));
 		//add the word to the current vector at the end
 		newCurrent.push_back(candidateStringVector.at(i));
 
 		//call the function recursively
 		if(cutTest2(newCandidate, newCurrent)== false)
-			return;
+			break;
 		recursiveFindPalindromes(newCandidate, newCurrent); 
 	}
 	return;
