@@ -155,13 +155,14 @@ bool FindPalindrome::cutTest1(const vector<string> & stringVector)
 				{
 					letterCount++;
 				}
-			//now check if letterCount is evenly divisible by 2
+			
+		}
+	}
+	//now check if letterCount is evenly divisible by 2
 			if(letterCount % 2 != 0) //we have an odd amount of same letters
 			{
 				oddCheck++;
 			}
-		}
-	}
 	//after we finish looping, check if oddCheck > 1
 	if(oddCheck > 1)
 	{
@@ -238,6 +239,8 @@ bool FindPalindrome::cutTest2(const vector<string> & stringVector1,
 
 bool FindPalindrome::add(const string & value)
 {
+	PalindroneVec.clear();
+	numPal = 0;
 	// need to check if the word added is acceptable
 	std::string tempStr;
 	tempStr = value; 
@@ -278,7 +281,7 @@ bool FindPalindrome::add(const string & value)
 	if(cutTest1(sentenceVec) == false)
 	{
 		//return false
-		return true;
+		return false;
 	}
 	//now want to add the value to the vector of words to find palindromes
 	sentenceVec.push_back(value); //stores the value at the end of the vector
@@ -293,6 +296,8 @@ bool FindPalindrome::add(const string & value)
 //This does the same thing as the first add test, but by entering a whole vector of words
 bool FindPalindrome::add(const vector<string> & stringVector)
 {
+	PalindroneVec.clear();
+	numPal = 0;
 	// We have a vector full of strings, we need to test each string -- CANNOT RECURSIVELY USE THE STRING ADD FUNCTION
 	//Test for allowable words
 	//4 criteria
