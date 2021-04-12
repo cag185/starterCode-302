@@ -266,7 +266,17 @@ void BinaryTree<TreeItemType, FunctionType>::preorder(
     NodeType* treePtr, FunctionType visit)
 {
    if (treePtr != 0) {
-        // TODO
+       //visit the root
+       //preorder traferse left subtree
+       //preorder traverse right subtree
+        TreeItemType newItem = treePtr->item;
+        visit(newItem);
+        //create a node of the left item
+        NodeType* leftItem = treePtr->leftChildPtr;
+        preorder(leftItem, visit);
+        //create a node of the right item
+        NodeType* rightItem = treePtr->rightChildPtr;
+        preorder(rightItem, visit);
    }
 };
 
