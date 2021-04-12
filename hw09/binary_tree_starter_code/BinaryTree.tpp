@@ -285,7 +285,14 @@ void BinaryTree<TreeItemType, FunctionType>::inorder(
     NodeType* treePtr, FunctionType visit)
 {
     if (treePtr != 0) {
-        // TODO
+        //inorder traversal left
+        //visit
+        //inorder traversal right
+        inorder( treePtr->leftChildPtr,visit);
+        TreeItemType theItem = treePtr->item;
+        visit(theItem);
+        inorder( treePtr->rightChildPtr,visit);
+
     }
 };
 
