@@ -301,6 +301,14 @@ void BinaryTree<TreeItemType, FunctionType>::postorder(
     NodeType* treePtr, FunctionType visit)
 {
     if (treePtr != 0) {
-        // TODO
+        ////post order traverse left
+        //post order traverse right 
+        //visit the root of T
+        TreeItemType newItem = treePtr->item;
+        NodeType * leftItem = treePtr->leftChildPtr;
+        NodeType * rightItem = treePtr->rightChildPtr;
+        preorder(leftItem, visit);
+        preorder(rightItem, visit);
+        visit(newItem);
     }
 };
