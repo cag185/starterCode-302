@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cag185/Desktop/C++/starterCode-302/hw09/binary_search_tree_starter_code/binary_search_tree.h
+stack
+-
+cassert
+-
+binary_search_tree.tpp
+/home/cag185/Desktop/C++/starterCode-302/hw09/binary_search_tree_starter_code/binary_search_tree.tpp
+
+/home/cag185/Desktop/C++/starterCode-302/hw09/binary_search_tree_starter_code/binary_search_tree.tpp
+binary_search_tree.h
+/home/cag185/Desktop/C++/starterCode-302/hw09/binary_search_tree_starter_code/binary_search_tree.h
+
+/home/cag185/Desktop/C++/starterCode-302/hw09/binary_search_tree_starter_code/test_bst.cpp
+cstdlib
+-
+iostream
+-
+binary_search_tree.h
+/home/cag185/Desktop/C++/starterCode-302/hw09/binary_search_tree_starter_code/binary_search_tree.h
+

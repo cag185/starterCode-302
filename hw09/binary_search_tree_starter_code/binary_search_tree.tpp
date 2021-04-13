@@ -101,8 +101,44 @@ template <typename KeyType, typename ItemType>
 bool BinarySearchTree<KeyType, ItemType>::insert(
     const KeyType& key, const ItemType& item)
 {
-    // TODO 
+    //create a new node and insert it
+    //use preorder traversal to insert
+    Node<KeyType, ItemType> * newNodePtr = new Node<KeyType, ItemType>;
+    //assign the node its data
+    newNodePtr->data = item;
+    newNodePtr->key = key;
+    //create two blank pointers
+    Node<KeyType, ItemType> * current, *parent = nullptr;
+    //call the search function
+    search(key, current, parent);
+    //now these can be used
+    //case where empty
+    if(root=0)
+    {
+        root = newNodePtr;
+        return true;
+    }
+    if(current != 0)    //not the root
+    {
+        if(key < current->key)
+        {
+            current->left = newNodePtr;
+            return true;
+        }
+        else if(key > current->key)
+        {
+            current->right = newNodePtr;
+            return true;
+        }
+        if(current->key == key)
+        {
+            delete(newNodePtr);
+            std::cout << "cannot have two identical keys" << std::endl;
+            return false;
+        }
+    }
     return false;
+
 }
 
 template <typename KeyType, typename ItemType>
