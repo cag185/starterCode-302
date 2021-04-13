@@ -17,8 +17,11 @@ int main(int argc, char** argv)
     BinaryTree<ItemType, FunctionType> T3("A");
     T3.attachLeftSubtree(T1);
     T3.attachRightSubtree(T2);
+    cout << "post order" << endl;
     T3.postorderTraverse(&PrintNode);
+    cout << "pre order" << endl;
     T3.preorderTraverse(&PrintNode);
+    cout << "inOrder" << endl;
     T3.inorderTraverse(&PrintNode);
 
     // now T1 and T2 are no longer trees, but empty objects
