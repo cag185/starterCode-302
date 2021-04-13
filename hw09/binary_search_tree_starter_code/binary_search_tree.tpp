@@ -113,7 +113,7 @@ bool BinarySearchTree<KeyType, ItemType>::insert(
     search(key, current, parent);
     //now these can be used
     //case where empty
-    if(root=0)
+    if(root==0)
     {
         root = newNodePtr;
         return true;
@@ -170,14 +170,22 @@ template <typename KeyType, typename ItemType>
 bool BinarySearchTree<KeyType, ItemType>::remove(KeyType key)
 {
     if (isEmpty())
+    {
         return false; // empty tree
+    }
 
-    // TODO
-
-
-    // case one thing in the tree
+    // case one thing in the tree -- no left/right, no descendents
+    //search for the key
+    Node<KeyType, ItemType> * current, * parent = nullptr;
+    search(key, current, parent);
+    if(parent == 0) //can only be root if there is no parent
+    {
+        delete(current);
+        return true;
+    }
 
     // case, found deleted item at leaf
+    
 
     // case, item to delete has only a right child
 
